@@ -76,7 +76,7 @@ public class UserService {
     }
 
     public boolean checkPatientExist(String userName, String hospitalName) {
-        User user = userRepository.findByUsername(userName);
+            User user = userRepository.findByUsername(userName);
         if (ObjectUtils.isEmpty(user)) {
             return false;
         } else {

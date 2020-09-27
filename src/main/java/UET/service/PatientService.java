@@ -177,8 +177,8 @@ public class PatientService {
                     .findFirst().orElse(new PatientRecord());
 //            patient.setNumberPhone(patientRecordDTO.getNumberPhone());
 //            patient.setAge(patientRecordDTO.getAge());
-//            patient.setFullName(patientRecordDTO.getName());
 //            patient.setAddress(patientRecordDTO.getAddress());
+            patient.setFullName(patientRecordDTO.getName());
             patientRecord.setSick(patientRecordDTO.getSick());
             patientRecord.setSickStatus(patientRecordDTO.getSickStatus());
             patientRecordRepository.save(patientRecord);
