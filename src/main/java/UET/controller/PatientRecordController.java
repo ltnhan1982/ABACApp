@@ -92,7 +92,7 @@ public class PatientRecordController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasPermission(null,'CREAT_PATIENTRECORD')")
+    @PreAuthorize("hasPermission(null,'CREATE_PATIENTRECORD')")
     public RedirectView createdPatientRecord(
             @ModelAttribute("patientRecordDTO") @Valid PatientRecordDTO patientRecordDTO,
             RedirectAttributes model
@@ -104,6 +104,7 @@ public class PatientRecordController {
     @PostMapping("/update/{id}")
     public String editPatientRecord(@ModelAttribute("patientRecord") @Valid PatientRecordDTO patientRecordDTO, @PathVariable("id") Integer id, Model model) {
         Patient patient = patientService.findById(id);
+        System.out.println("PatientRecordDTO"+patientRecordDTO);
         policy.checkPermission(patient, "UPDATE_PATIENTRECORD");
         patientService.editPatientRecord(patientRecordDTO, patient, model);
         return "editPatientRecord";
